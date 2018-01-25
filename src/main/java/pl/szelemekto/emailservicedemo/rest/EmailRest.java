@@ -11,10 +11,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import pl.szelemekto.emailservicedemo.model.EmailMsg;
 import pl.szelemekto.emailservicedemo.model.ValidationResult;
 import pl.szelemekto.emailservicedemo.service.EmailService;
 
+@Api
 @RestController
 @RequestMapping("/email")
 public class EmailRest {
@@ -31,7 +33,6 @@ public class EmailRest {
 			}
 			return ResponseEntity.badRequest().body(validationResult);
 		}
-		
 		
 		emailService.send(email);
 		return ResponseEntity.ok().body(email);
