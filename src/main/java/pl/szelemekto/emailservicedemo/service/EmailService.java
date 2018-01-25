@@ -12,19 +12,18 @@ import pl.szelemekto.emailservicedemo.model.EmailMsg;
 @Service
 public class EmailService {
 	
-	
 	private List<EmailProviderConnector> connectors;
 	
-	public void send(EmailMsg email) {
+	public int send(EmailMsg email) {
 		for(EmailProviderConnector connector : connectors) {
 			try {
-				System.out.println(connector);
 				connector.send(email);
-//				return;
+				return 200;
 			} catch(EmailServiceConnectorException e) {
 				continue;
 			}
 		}
+		return 500;
 	}
 	
 	@Autowired

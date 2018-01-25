@@ -48,8 +48,6 @@ public class MailgunConnector implements EmailProviderConnector {
 			if(response.getStatus() != 200) {
 				throw new EmailServiceConnectorException(response.getStatusText());
 			}
-			
-			System.out.println(response.getStatus() + " " + response.getBody());
 		} catch (UnirestException e) {
 			throw new EmailServiceConnectorException(e.getMessage());
 		}
@@ -69,8 +67,7 @@ public class MailgunConnector implements EmailProviderConnector {
 		
 		while(it.hasNext()) {
 			email = it.next();
-			sb.append(createEmailAddress(email));	
-			
+			sb.append(createEmailAddress(email));				
 			if(it.hasNext()) {
 				sb.append(",");
 			}		

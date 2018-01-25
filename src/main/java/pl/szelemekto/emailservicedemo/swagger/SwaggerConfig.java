@@ -27,7 +27,7 @@ public class SwaggerConfig {
     
     private ApiInfo info() {
         return new ApiInfoBuilder()
-                .title("Trade Validator Demo")
+                .title("Mail Service Demo")
                 .description("recruitment project, a simple mail sending app using SendGrid and Mailgun")
                 .version("1.0")
                 .contact(new Contact("Andrzej Szelemetko", "https://github.com/Szelemetko", "a.szelemetko@gmail.com"))
