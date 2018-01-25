@@ -1,12 +1,12 @@
 package pl.szelemekto.emailservicedemo.service;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import pl.szelemekto.emailservicedemo.connector.EmailProviderConnector;
+import pl.szelemekto.emailservicedemo.exception.EmailServiceConnectorException;
 import pl.szelemekto.emailservicedemo.model.EmailMsg;
 
 @Service
@@ -20,8 +20,8 @@ public class EmailService {
 			try {
 				System.out.println(connector);
 				connector.send(email);
-				return;
-			} catch(IOException e) {
+//				return;
+			} catch(EmailServiceConnectorException e) {
 				continue;
 			}
 		}
